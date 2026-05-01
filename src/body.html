@@ -1,0 +1,25 @@
+<!-- Copyright (c) 2023 8th Wall, Inc. -->
+<!-- body.html is optional; elements will be added to your html body after app.js is loaded. -->
+
+<a-scene
+  landing-page
+  xrextras-loading
+  xrextras-runtime-error
+  xrface="allowedDevices: any; cameraDirection: front; mirroredDisplay: true">
+  <a-assets>
+    <a-asset-item id="morphTargets" src="./assets/morphTargets.glb"></a-asset-item>
+  </a-assets>
+
+  <a-camera
+    look-controls="enabled: false"
+    wasd-controls="enabled: false"
+    position="0 2 0"></a-camera>
+
+  <xrextras-faceanchor id="face">
+    <a-entity gltf-model="#morphTargets" position="-1.2 0 0" face-texture></a-entity>
+    <a-entity gltf-model="#morphTargets" position="1.2 0 0" face-texture></a-entity>
+  </xrextras-faceanchor>
+
+  <a-light type="directional" target="#face" position="0 1.8 3" intensity="0.8"></a-light>
+  <a-light type="ambient" intensity="0.8"></a-light>
+</a-scene>
